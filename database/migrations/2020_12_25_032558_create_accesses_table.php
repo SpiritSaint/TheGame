@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLocationsTable extends Migration
+class CreateAccessesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class CreateLocationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('locations', function (Blueprint $table) {
+        Schema::create('accesses', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('geofence_id')->nullable();
             $table->foreignId('device_id')->nullable();
-            $table->point('point');
+            $table->foreignId('in_point_id')->nullable();
+            $table->foreignId('current_point_id')->nullable();
+            $table->foreignId('out_point_id')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ class CreateLocationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('locations');
+        Schema::dropIfExists('accesses');
     }
 }
