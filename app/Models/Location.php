@@ -11,6 +11,7 @@ class Location extends Model
     use HasFactory, SpatialTrait;
 
     protected $fillable = [
+        'device_id',
         'point'
     ];
 

@@ -46,6 +46,12 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'dev' => [
+            'driver' => 'token',
+            'provider' => 'devices',
+            'hash' => false,
+        ],
     ],
 
     /*
@@ -69,6 +75,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+
+        'devices' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Device::class,
         ],
 
         // 'users' => [
