@@ -1,0 +1,17 @@
+name: JavaScript
+
+on: [push]
+
+jobs:
+  build:
+    name: "JavaScript"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install # will run `yarn install` command
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: production # will run `yarn build` command
+      - uses: borales/actions-yarn@v2.0.0
